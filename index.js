@@ -19,8 +19,8 @@ mongoConnect();
 
 // Use Routes
 app.use("/api", indexRoute);
-app.use(express.static(path.join(__dirname, "image")));
-app.use("/images", express.static(path.join(__dirname, "/image")));
+app.use(express.static(path.join(__dirname, 'public')))
+app.use('/images', express.static(path.join(__dirname, 'public/images')))
 
 // Routes
 app.get("/", (req, res) => {
