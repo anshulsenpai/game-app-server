@@ -6,7 +6,7 @@ console.log("Current working directory: " + process.cwd());
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, "../images"));
+    cb(null, "./src/images/");
   },
   filename: (req, file, cb) => {
     cb(null, req.body.image);
