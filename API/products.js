@@ -9,15 +9,15 @@ const upload = require("../middlewares/upload");
 const { verifyAdmin } = require("../middlewares/verifyUser");
 
 // GET ALL PRODUCTS
-router.get("/get", getProducts);
+router.get("/", getProducts);
 
 // POST PRODUCT
-router.post("/post", upload, postProduct);
+router.post("/", upload, postProduct);
 
 // FIND PRODUCT
-router.get('/find/:id', findProduct)
+router.get("/:id", findProduct);
 
 // DELETE PRODUCT
-router.delete('/delete/:id', deleteProduct)
+router.delete("/:id", deleteProduct);
 
 module.exports = router;
