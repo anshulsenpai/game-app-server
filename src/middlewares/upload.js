@@ -2,11 +2,11 @@ const multer = require("multer");
 const path = require("path");
 
 console.log("multer started")
-console.log("Current working directory: " + process.cwd());
+console.log(__dirname);
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./src/images/");
+    cb(null, path.join(__dirname, "../images"));
   },
   filename: (req, file, cb) => {
     cb(null, req.body.image);
