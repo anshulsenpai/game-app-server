@@ -12,6 +12,9 @@ const getAllProducts = async () => {
 
 // Post product
 const postProductService = async (req, res) => {
+  console.log("post product service started");
+  console.log("Current working directory: " + process.cwd());
+
   const { image, title, desc, price, category } = req.body;
   try {
     const product = new Product({
@@ -30,10 +33,10 @@ const postProductService = async (req, res) => {
 
 const findProductService = async (req, res) => {
   const id = req.params.id;
-  if(!id) return { status: 500, message: "Invalid ID" }
+  if (!id) return { status: 500, message: "Invalid ID" };
   try {
     const product = await Product.findById(id);
-    if(!product) return { status: 500, message: "Product not found" }
+    if (!product) return { status: 500, message: "Product not found" };
     return { status: 200, data: product };
   } catch (error) {
     return { status: 500, message: error.message };
@@ -42,10 +45,10 @@ const findProductService = async (req, res) => {
 
 const deleteProductService = async (req, res) => {
   const id = req.params.id;
-  if(!id) return { status: 500, message: "Invalid ID" }
+  if (!id) return { status: 500, message: "Invalid ID" };
   try {
     const product = await Product.findByIdAndDelete(id);
-    if(!product) return { status: 500, message: "Product not found" }
+    if (!product) return { status: 500, message: "Product not found" };
     return { status: 200, data: "Product deleted" };
   } catch (error) {
     return { status: 500, message: error.message };

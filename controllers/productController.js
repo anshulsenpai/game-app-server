@@ -17,6 +17,8 @@ const getProducts = async (req, res, next) => {
 
 // POST PRODUCT
 const postProduct = async (req, res, next) => {
+  console.log("post product started");
+  console.log("Current working directory: " + process.cwd());
   try {
     const product = await postProductService(req, res);
     res.status(product.status).json(product);
